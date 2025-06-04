@@ -36,7 +36,7 @@ Alternatively, to manually configure VS Code, choose the appropriate JSON block 
 <tr><th align=left colspan=2>VS Code (version 1.101 or greater)</th></tr>
 <tr valign=top>
 <td>
-  
+
 ```json
 {
   "servers": {
@@ -130,7 +130,7 @@ To keep your GitHub PAT secure and reusable across different MCP hosts:
    ```bash
    # CLI usage
    claude mcp update github -e GITHUB_PERSONAL_ACCESS_TOKEN=$GITHUB_PAT
-   
+
    # In config files (where supported)
    "env": {
      "GITHUB_PERSONAL_ACCESS_TOKEN": "$GITHUB_PAT"
@@ -241,7 +241,7 @@ For other MCP host applications, please refer to our installation guides:
 
 - **[GitHub Copilot in other IDEs](/docs/installation-guides/install-other-copilot-ides.md)** - Installation for JetBrains, Visual Studio, Eclipse, and Xcode with GitHub Copilot
 - **[Claude Code & Claude Desktop](docs/installation-guides/install-claude.md)** - Installation guide for Claude Code and Claude Desktop
-- **[Cursor](docs/installation-guides/install-cursor.md)** - Installation guide for Cursor IDE  
+- **[Cursor](docs/installation-guides/install-cursor.md)** - Installation guide for Cursor IDE
 - **[Windsurf](docs/installation-guides/install-windsurf.md)** - Installation guide for Windsurf IDE
 
 For a complete overview of all installation options, see our **[Installation Guides Index](docs/installation-guides/installation-guides.md)**.
@@ -928,6 +928,30 @@ The following sets of tools are available (all are on by default):
   - `sort`: Sort users by number of followers or repositories, or when the person joined GitHub. (string, optional)
 
 </details>
+
+
+<summary>Security Advisories</summary>
+
+<details>
+- **`list_global_security_advisories`** - List global security advisories
+  - **Parameters**:
+    - * `ghsaId`: Filter by GitHub Security Advisory ID (string, optional – format: `GHSA-xxxx-xxxx-xxxx`)
+    - * `type`: Advisory type (string, optional – one of `reviewed`, `malware`, `unreviewed`)
+    - * `cveId`: Filter by CVE ID (string, optional)
+    - * `ecosystem`: Filter by package ecosystem (string, optional – one of `actions`, `composer`, `erlang`, `go`, `maven`, `npm`, `nuget`, `other`, `pip`, `pub`, `rubygems`, `rust`)
+    - * `severity`: Filter by severity (string, optional – one of `unknown`, `low`, `medium`, `high`, `critical`)
+    - * `cwes`: Filter by Common Weakness Enumeration IDs (array of strings, optional – e.g. `["79", "284", "22"]`)
+    - * `isWithdrawn`: Whether to only return withdrawn advisories (boolean, optional)
+    - * `affects`: Filter advisories by affected package or version (string, optional – e.g. `"package1,package2@1.0.0"`)
+    - * `published`: Filter by publish date or date range (string, optional – ISO 8601 date or range)
+    - * `updated`: Filter by update date or date range (string, optional – ISO 8601 date or range)
+    - * `modified`: Filter by publish or update date or date range (string, optional – ISO 8601 date or range)
+
+- **`get_global_security_advisory`** = Get a global security advisory
+  - **Template**: `advisories/{ghsaId}`
+
+</details>
+
 <!-- END AUTOMATED TOOLS -->
 
 ### Additional Tools in Remote Github MCP Server
